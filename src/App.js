@@ -6,6 +6,7 @@ import {
 } from "d3-scale"
 
 import TimelinesChart from "./utilities/src/timelines"
+import moment from 'moment';
 
 const KAPAL_PERINTIS_JATIM = "Kapal Perintis"
 const KAPAL_PENGAWAS_KKP = "Kapal Pengawas"
@@ -13,6 +14,13 @@ const BENCHMARKING_BALAI_PANTAI_BALI = "Balai Pantai Bali"
 const LOMBA_OCEANO = "Lomba Oceano"
 const WAHANA_ALPO = "Wahana Alpo"
 const DIPA_HANKAM = "DIPA Hankam"
+const PPT_MARITIM = "PPT Maritim"
+const PPT_INA_TEWS = "PPT INA-TEWS"
+const KPC60 = "Kapal Patroli Cepat 60M"
+const BCM4 = "Kapal BCM-4"
+const FERRYACEH1300 = "Ferry Aceh 1300GT"
+const FERRY1500 = "Ferry RoRo 1500GT"
+const TODAY = ""
 
 class App extends Component {
   constructor(props) {
@@ -20,92 +28,91 @@ class App extends Component {
   }
 
   componentDidMount() {
+    let todayDate = new moment().toDate()
     let dataJson = [
       // Produksi 
       {
         group : "Produksi", 
         data : [
             {
-              label : KAPAL_PERINTIS_JATIM,
+              label : FERRY1500,
               data : [
                   {
-                      timeRange : [new Date("Oct 01 2019"), new Date("Oct 03 2019") ],
-                      val : KAPAL_PERINTIS_JATIM
+                    timeRange : [new Date("Sep 21 2020"), new Date("Sep 25 2020") ],
+                    val : FERRY1500
                   }
               ]
             },
 
             {
-              label : KAPAL_PENGAWAS_KKP,
+              label : FERRYACEH1300,
               data : [
                   {
-                      timeRange : [new Date("Oct 01 2019"), new Date("Oct 07 2019") ],
-                      val : KAPAL_PENGAWAS_KKP
+                    timeRange : [new Date("Sep 21 2020"), new Date("Sep 25 2020") ],
+                    val : FERRYACEH1300
                   }
               ]
             },
         ]
       },
 
-    //   // SMWS 
-    //   {
-    //     group : "SMWS", 
-    //     data : [
-    //         {
-    //             label : "SMWS",
-    //             data : [
-    //                 {
-    //                     timeRange : [new Date("Jun 15 2018"), new Date("Jul 01 2018") ],
-    //                     val : "Buoy Merah Putih"
-    //                 }
-    //             ]
-    //         },
-
-    //         {
-    //           label : "SMWS",
-    //           data : [
-    //               {
-    //                   timeRange : [new Date("Jul 30 2018"), new Date("Aug 29 2018") ],
-    //                   val : "Kapal Patroli Cepat 75 M"
-    //               }
-    //           ]
-    //         },
-
-    //         {
-    //           label : "SMWS",
-    //           data : [
-    //               {
-    //                   timeRange : [new Date("Sep 20 2018"), new Date("Oct 28 2018") ],
-    //                   val : "Kapal Selam"
-    //               }
-    //           ]
-    //         }
-    //     ]
-    //   },
 
       // MWS 
       {
-        group : "MWS", 
+        group : "Mekanik", 
         data : [
             {
-                label : KAPAL_PENGAWAS_KKP,
+                label : PPT_MARITIM,
                 data : [
                     {
-                        timeRange : [new Date("Oct 01 2019"), new Date("Oct 11 2019") ],
-                        val : KAPAL_PENGAWAS_KKP
+                      timeRange : [new Date("Sep 21 2020"), new Date("Sep 25 2020") ],
+                      val : PPT_MARITIM
                     }
                 ]
             },
-
             {
-              label : DIPA_HANKAM,
-              data : [
-                  {
-                      timeRange : [new Date("Oct 01 2019"), new Date("Oct 18 2019") ],
-                      val : DIPA_HANKAM
-                  }
-              ]
+                label : PPT_INA_TEWS,
+                data : [
+                    {
+                      timeRange : [new Date("Sep 21 2020"), new Date("Sep 25 2020") ],
+                      val : PPT_INA_TEWS
+                    }
+                ]
             },
+            {
+                label : KPC60,
+                data : [
+                    {
+                      timeRange : [new Date("Sep 21 2020"), new Date("Sep 25 2020") ],
+                      val : KPC60
+                    }
+                ]
+            },
+            {
+                label : BCM4,
+                data : [
+                    {
+                      timeRange : [new Date("Sep 21 2020"), new Date("Sep 25 2020") ],
+                      val : BCM4
+                    }
+                ]
+            },
+        ]
+      },
+
+      // CNC 
+      {
+        group : "CNC 5-Axis", 
+        data : [
+            {
+                label : KPC60,
+                data : [
+                    {
+                      timeRange : [new Date("Sep 21 2020"), new Date("Sep 25 2020") ],
+                      val : KPC60
+                    }
+                ]
+            }
         ]
       },
 
@@ -150,33 +157,13 @@ class App extends Component {
         group : "Tow. Tank", 
         data : [
             {
-                label : KAPAL_PERINTIS_JATIM,
+                label : BCM4,
                 data : [
                     {
-                        timeRange : [new Date("Oct 01 2019"), new Date("Oct 04 2019") ],
-                        val : KAPAL_PERINTIS_JATIM
+                      timeRange : [new Date("Sep 30 2020"), todayDate ],
+                      val : BCM4
                     }
                 ]
-            },
-
-            {
-              label : KAPAL_PENGAWAS_KKP,
-              data : [
-                  {
-                      timeRange : [new Date("Oct 07 2019"), new Date("Oct 18 2019") ],
-                      val : KAPAL_PENGAWAS_KKP
-                  }
-              ]
-            },
-
-            {
-              label : DIPA_HANKAM,
-              data : [
-                  {
-                      timeRange : [new Date("Oct 21 2019"), new Date("Oct 30 2019") ],
-                      val : DIPA_HANKAM
-                  }
-              ]
             }
         ]
       },
@@ -186,65 +173,11 @@ class App extends Component {
         group : "MOB", 
         data : [
             {
-                label : KAPAL_PERINTIS_JATIM,
+                label : FERRYACEH1300,
                 data : [
                     {
-                        timeRange : [new Date("Oct 11 2019"), new Date("Oct 18 2019") ],
-                        val : KAPAL_PERINTIS_JATIM
-                    }
-                ]
-            },
-
-            {
-              label : KAPAL_PENGAWAS_KKP,
-              data : [
-                  {
-                      timeRange : [new Date("Oct 21 2019"), new Date("Oct 28 2019") ],
-                      val : KAPAL_PENGAWAS_KKP
-                  }
-              ]
-            },
-
-            {
-              label : BENCHMARKING_BALAI_PANTAI_BALI,
-              data : [
-                  {
-                      timeRange : [new Date("Oct 08 2019"), new Date("Oct 09 2019") ],
-                      val : BENCHMARKING_BALAI_PANTAI_BALI
-                  }
-              ]
-            },
-
-            {
-                label : LOMBA_OCEANO,
-                data : [
-                    {
-                        timeRange : [new Date("Oct 04 2019"), new Date("Oct 07 2019") ],
-                        val : LOMBA_OCEANO
-                    },
-                    {
-                        timeRange : [new Date("Oct 10 2019"), new Date("Oct 11 2019") ],
-                        val : LOMBA_OCEANO
-                    }
-                ]
-            },
-
-            {
-                label : WAHANA_ALPO,
-                data : [
-                    {
-                        timeRange : [new Date("Oct 25 2019"), new Date("Nov 08 2019") ],
-                        val : WAHANA_ALPO
-                    }
-                ]
-            },
-
-            {
-                label : DIPA_HANKAM,
-                data : [
-                    {
-                        timeRange : [new Date("Nov 11 2019"), new Date("Nov 19 2019") ],
-                        val : DIPA_HANKAM
+                      timeRange : [new Date("Sep 25 2020"), new Date("Sep 30 2020") ],
+                      val : FERRYACEH1300
                     }
                 ]
             }
@@ -256,11 +189,11 @@ class App extends Component {
         group : "CT", 
         data : [
             {
-                label : DIPA_HANKAM,
+                label : TODAY,
                 data : [
                     {
-                        timeRange : [new Date("Oct 31 2019"), new Date("Nov 08 2019") ],
-                        val : DIPA_HANKAM
+                      timeRange : [todayDate, todayDate],
+                      val : KPC60
                     }
                 ]
             }
