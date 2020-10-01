@@ -2,6 +2,7 @@
   "name": "hello-world",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://lhiapps.tech/facility-timeline",
   "dependencies": {
     "moment": "^2.29.0",
     "react": "^16.6.0",

@@ -208,6 +208,7 @@ class App extends Component {
     console.log(myColor.domain())
     
     timelinesChart
+      .width(100)
       .data(dataJson)
       .zQualitative(true)
       .zColorScale(myColor)
@@ -220,7 +221,15 @@ class App extends Component {
   
   render() {
     return (
-      <div id="facility-timeline-chart"></div>
+        <div>
+            <p style={{
+                width: "100%",
+                textAlign: "center",
+                fontSize: 24,
+                fontWeight: "bold"
+            }}>Timeline Fasilitas Tahun 2020</p>
+            <div id="facility-timeline-chart"></div>
+        </div>
     );
   }
 }
